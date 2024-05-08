@@ -32,3 +32,11 @@ Other than the sensors, the PiCar’s Power component is also essential. The Pow
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/fec7c5b2-c88e-4d00-b544-056300e7df36"> 
 </p>
+
+
+<div align="center">
+    <h2 id="Header">Methods: </h2>
+</div>
+
+The overall goal of the final module was to successfully implement the various strategies studied throughout the semester, such as control, movement, and movement with control, on the
+PiCar. We started this process by implementing the Module 9 tasks, but this time, using a PiCar instead of a mock car.
