@@ -27,10 +27,6 @@ Through the implementation of knowledge and methods learned from our ESE 205: En
 The primary focus of our first objective was to design a control system for the PiCar. We overcame significant challenges and successfully implemented a PID-control system, effectively controlling motor speed in a no-load environment. 
 
 <p align="center" width="100%">
-    <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/5caf4583-51ab-4efa-bcfb-fece10e241b6"> 
-</p>
-
-<p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/ad107880-8322-4abc-84ff-783b036f044f"> 
 </p>
 
