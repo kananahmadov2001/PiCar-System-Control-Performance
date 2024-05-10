@@ -62,4 +62,4 @@ The velocity-time plot with Movement and Control is not as smooth as the velocit
 
 Ultimately, through these objectives, we concluded that Kp balances the stability. The system may be slow and exhibit steady-state error if it's too low. If it's too high, it can cause instability. Ki ensures the system remains stable while achieving the desired accuracy. It should be set to correct steady-state errors without causing oscillation or overshooting. Finally, Kd should dampen oscillations and stabilize the system without introducing excess noise. Future investigations into PID control would serve to further display the complex relationships between the three coefficients: Kp, Ki, and Kd.
 
-If you would like to know more about the "PiCar-System-Control-Performance" project, checkout our report: https://github.com/kananahmadov2001/PiCar-System-Control-Performance/blob/main/Final_Report_ESE205.pdf
+If you would like to know more about our "PiCar-System-Control-Performance" project, checkout our report: https://github.com/kananahmadov2001/PiCar-System-Control-Performance/blob/main/Final_Report_ESE205.pdf
