@@ -10,9 +10,9 @@ PiCar is a robotic platform that uses Raspberry Pi, a small single-board compute
 </div>
 
     1. Introduction: Sensors used on the PiCar and Power
-    2. Methods: 
-    3. Analysis and Results: 
-    4. Conclusion
+    2. Objective 1: Control
+    3. Objective 1: Movement
+    4. Objective 3: Movement with Control
 
 <div align="center">
     <h2 id="Header">Introduction: Sensors used on the PiCar and Power</h2>
@@ -35,8 +35,19 @@ Other than the sensors, the PiCar’s Power component is also essential. The Pow
 
 
 <div align="center">
-    <h2 id="Header">Methods: </h2>
+    <h2 id="Header">Objective 1: Control</h2>
 </div>
 
-The overall goal of the final module was to successfully implement the various strategies studied throughout the semester, such as control, movement, and movement with control, on the
-PiCar. We started this process by implementing the Module 9 tasks, but this time, using a PiCar instead of a mock car.
+The main goal of objective 1 was designing a control system for the car similar to what was used for the motor.
+
+
+
+<div align="center">
+    <h2 id="Header">Objective 2: Movement</h2>
+</div>
+
+
+
+<div align="center">
+    <h2 id="Header">Objective 1: Movement with Control</h2>
+</div>
