@@ -34,12 +34,12 @@ Other than the sensors, the PiCar’s Power component is also essential. The Pow
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/fec7c5b2-c88e-4d00-b544-056300e7df36"> 
 </p>
 
+Through the implementation of knowledge and methods learned from our ESE 205: Engineering Design class and the idea of PID control, we were able to successfully complete our "PiCar System Performance and Control" project, which had three objectives: Control, Movement, and Movement with Control. 
+
 
 <div align="center">
     <h2 id="Header">Objective 1: Control</h2>
 </div>
-
-Through the implementation of knowledge and methods learned from our ESE 205: Engineering Design class and the idea of PID control, we were able to successfully complete our "PiCar System Performance and Control" project, which had three objectives: control, Movement, and Movement with Control. 
 
 The primary focus of our first objective was to design a control system for the PiCar. We overcame significant challenges and successfully implemented a PID-control system, effectively controlling motor speed in a no-load environment. 
 
