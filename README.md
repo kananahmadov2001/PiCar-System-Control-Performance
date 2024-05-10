@@ -22,7 +22,7 @@ PiCar is a robotic platform that uses Raspberry Pi, a small single-board compute
 The PiCar has the Ultrasonic sensor for the eyes and the Camera as its mouth. The Ultrasonic Sensor also has a built in voltage divider to convert the 5 V for the Echo down to 3.3 V input to the Raspberry Pi. The DC motor is installed on the back of the PiCar; the motor has a rear-wheel drive connected to some gears underneath that drive the wheels. The Analog-to-Digital Converter (ADC) is also connected to the back end of the car next to the motor. The ADC was also connected to a photoresistor at channel 0 and an LED light that pointed at the inside of the left back wheel where the black and white disk is installed. Regarding the Servo(s), our PiCar has three servomotors on it:
 * Nod servomotor (for tilting the head up and down)
 * Swivel servomotor (for twisting the head left and right)
-* Steer servomotor (for steering the front wheels left and
+* Steer servomotor (for steering the front wheels left and right)
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/28984a60-a50c-4976-ba48-2b17961fa3f6"> 
