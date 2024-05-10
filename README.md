@@ -38,25 +38,13 @@ Other than the sensors, the PiCar’s Power component is also essential. The Pow
     <h2 id="Header">Objective 1: Control</h2>
 </div>
 
-The main goal of objective 1 was designing a control system for the car similar to what was used for the motor.
+Through the implementation of knowledge and methods learned from our ESE 205: Engineering Design class and the idea of PID control, we were able to successfully complete our "PiCar System Performance and Control" project, which had three objectives: control, Movement, and Movement with Control. 
+
+The primary focus of our first objective was to design a control system for the PiCar. We overcame significant challenges and successfully implemented a PID-control system, effectively controlling motor speed in a no-load environment. 
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/5caf4583-51ab-4efa-bcfb-fece10e241b6"> 
 </p>
-
-Kp, Ki, and Kd are the three important parameters of the PID controller to tune the controller’s behaviour. Kp is the proportional value that provides a quick adjustment when the desired and current output differ. As soon as there is a difference present between the output and the desired output, the system can instantly respond. Ki is the integral control uses the integral (or sum of all errors in the case of a digital system). So even after no error is present in the system, the integral will likely be non-zero which allows the controller to achieve zero-steady state error. Kd is the derivative control uses the derivative of the error (in a digital system, the difference between the most recent measurements). It helps to reduce the impact of quick changes in the other control components, which help reduce the overshoot of the system.
-
-<p align="center" width="100%">
-    <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/a166aaeb-6023-408a-84d0-b56b8e424db0"> 
-</p>
-
-Picking values for Kp, Ki, and Kd was tricky. Large values resulted in quick response but also large overshoot and often instability. Therefore, we followed the general observations procedure from our Notes to choose the appropriate values for Kp and Ki:
-
-<p align="center" width="100%">
-    <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/27da88db-b8db-43ba-b0fd-156e09f5f633"> 
-</p>
-
-After the following the general observations procedure, we choose the Kp = 1.0, Ki = 4.0, and Kd = 0.0. While the derivative coefficient can be valuable in controlling systems with high dynamics and oscillations, it’s not always necessary. Since we were working with a simple and stable system with computational constraints, and proportional and integral control provided the desired system response, we decided that adding derivative control might not offer substantial benefits. Therefore, we choose Kd = 0. A Kp of 1.0 provided enough overshoot to ensure that our PiCar was able to overcome inertia and get movement right away. The large Ki value of 4.0 surprised us, but multiple trials proved that lower Ki values resulted in small RPS oscillations – keeping the RPS values ”stuck” at undesired outputs. Here is the usage we had for Objective 1 that contains all the command line arguments and their values we had:
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/ad107880-8322-4abc-84ff-783b036f044f"> 
@@ -73,19 +61,19 @@ We got a steady velocity-time plot for the PiCar with only Control at the RPS of
     <h2 id="Header">Objective 2: Movement</h2>
 </div>
 
-The goal of the second objective was to create a program that would drive the PiCar to a blue object that is positioned at least 10 feet away with the PiCar turned up to 30◦ degrees away from the blue object in either direction. The blue object we used for objective 2 and for objective 3 is shown in figure 10. There were three targets that we were challenged to meet for this objective: A speed target, a distance target, and a direction target. The speed target was to reach the blue object in less than 10 seconds. The distance target was to start the PiCar at least 10 feet away from the blue object and stopping the PiCar within 15 cm of the blue object. The direction target is to direct the PiCar to the blue object with various starting angles. Using a mixture of the logic and functions from module9b.py and module9d.py, we created objective2.py, a program that tracks the blue object to output the steer servo position and simultaneously measure the distance from the blue object to determine the appropriate pwm for the DC motors.
-
-The image capture delay and delta value were adjusted to create an accurately responsive PiCar that makes proportional changes in steer servo direction towards the blue object. To reduce the occurrence of over-steering/over- correction, we set the steer direction straight ahead for angle measurements below 7.5 degrees in either direction. The program initialization step centers the swivel servo, sets the nod servo slightly above center, and sets the pwm of the motor to 90% for 0.5 seconds to make sure that the PiCar overcomes inertia. Past the initialization steps, the motor pwm decreases to 62% until the PiCar gets within 200 cm. For a distance range of 199- 100, 99-50, 49-10, and 9-0 cm the pwm is set to 50%, 45%, 40%, and 0% respectfully to allow for a smooth decrease in pwm as the PiCar gets closer to the blue object.
+The second objective was to create a program that would drive the PiCar to a blue object positioned at least 10 feet away, with the PiCar turned up to 30◦ degrees away from the blue object in either direction. We used an ultrasonic sensor to control motor speed and a camera-angle-tracking algorithm to control servos in an effort to meet speed, distance, and direction targets as the PiCar traversed to a blue object. 
 
 
 <div align="center">
     <h2 id="Header">Objective 3: Movement with Control</h2>
 </div>
 
-The goal of Objective 3 was to combine the processes of Objective 1 and Objective 2 and make the car start from a specific point and travel in a straight line to a large colored object at a specific speed determined by the instructor. The purpose was that the car should not run into the object and should ”stop” as close to the object as possible without hitting it. Our PiCar got within 3/8”. Regarding the PID coefficients, we again followed the procedure in Fig. 7. We chose the Kp = 1.5, Ki = 4.0, and Kd = 0.0. We choose the Kd = 0 again because we were working with a system that had computational constraints, and proportional and integral control provided the desired system response. Therefore, we decided that adding derivative control might not offer substantial benefits. A Kp value of 1.5 was needed because of the load that is experienced by the PiCar increases the inertia that must be overcome. Kp remained constant from objective 1 as it provided a smoother acceleration to our desired 5 RPS value compared to other values for Kp. Higher Kp caused the PiCar to accelerate too fast and lower Kp caused the PiCar to not accelerate at all. Here is the usage we had for Objective 3 that contains all the command line arguments and their values we had:
+For our third objective, we combined the methods from the first two objectives. This allowed us to use PID control and camera tracking to achieve a level of precision and accuracy in pathing to the blue object, all while maintaining a constant driving speed of 5 RPS. 
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/546e58ce-4fb0-4180-8fd1-6035fdde1a6b"> 
 </p>
 
 The velocity-time plot with Movement and Control is not as smooth as the velocity-time plot with only Control; this is due to the increased system dynamics, non-linearities, and the friction. Regarding the system performance results, we calculated the RPS of 4.812 for our plot and found the Peak RPS to be 6.450. Since calculated the RPS, then the Steady State Error is 5 - 4.812 = 0.188. The 90% of out calculated RPS is 4.331, therefore we founded Response Time to be t = 3.935 sec at RPS of 5.004. Finally, the OverShoot was ((6.450 – 5.000)/5.000)*100 = 29.0%
+
+Ultimately, through these objectives, we concluded that Kp balances the stability. The system may be slow and exhibit steady-state error if it's too low. If it's too high, it can cause instability. Ki ensures the system remains stable while achieving the desired accuracy. It should be set to correct steady-state errors without causing oscillation or overshooting. Finally, Kd should dampen oscillations and stabilize the system without introducing excess noise. Future investigations into PID control would serve to further display the complex relationships between the three coefficients: Kp, Ki, and Kd.
