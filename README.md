@@ -5,13 +5,13 @@
 PiCar is a robotic platform that uses Raspberry Pi, a small single-board computer, as its primary control unit. The PiCar we built for the Final Module included the sensors: Camera, DC Motor, Servos(s), Analog-to-Digital Converter, and Ultrasonic sensors.
 
 <div align="center">
-    <b>Project Description and Results:</b>
+    <b>Outline:</b>
     <p style="margin-top:10px;"></p>
 </div>
 
     1. Introduction: Sensors used on the PiCar and Power
     2. Objective 1: Control
-    3. Objective 1: Movement
+    3. Objective 2: Movement
     4. Objective 3: Movement with Control
 
 <div align="center">
@@ -62,18 +62,30 @@ After the following the general observations procedure, we choose the Kp = 1.0, 
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/ad107880-8322-4abc-84ff-783b036f044f"> 
 </p>
 
-As we can see from Fig. 8, we got a steady velocity-time plot for the PiCar with only Control at the RPS of 5. The strange bottom spike at the t = 2.4 sec could be due to some bad photo-resistor reading. Regarding the system performance results, we calculated the RPS of 4.929 for our plot and found the Peak RPS to be 6.240. Since calculated the RPS, then the Steady State Error is 5 - 4.929 = 0.071. The 90% of our calculated RPS is 4.436, therefore we found the Response Time to be t = 0.60 sec where the RPS value has a sharp increase to an RPS of 5.940 – past an RPS of 4.436. Finally, the OverShoot was ((6.240 – 5.000)/5.000)*100 = - 24.8%. To justify the reasoning why our real time calculations are accurate, we modified our plotting program and just examined a steady state portion of that data (power of 2 amount of data) to determine the FFT.
+We got a steady velocity-time plot for the PiCar with only Control at the RPS of 5. The strange bottom spike at the t = 2.4 sec could be due to some bad photo-resistor reading. Regarding the system performance results, we calculated the RPS of 4.929 for our plot and found the Peak RPS to be 6.240. Since calculated the RPS, then the Steady State Error is 5 - 4.929 = 0.071. The 90% of our calculated RPS is 4.436, therefore we found the Response Time to be t = 0.60 sec where the RPS value has a sharp increase to an RPS of 5.940 – past an RPS of 4.436. Finally, the OverShoot was ((6.240 – 5.000)/5.000)*100 = - 24.8%. To justify the reasoning why our real time calculations are accurate, we modified our plotting program and just examined a steady state portion of that data (power of 2 amount of data) to determine the FFT.
 
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/5fd64270-9a65-42ce-ae2f-2afe4d377a7f"> 
 </p>
 
+
 <div align="center">
     <h2 id="Header">Objective 2: Movement</h2>
 </div>
 
+The goal of the second objective was to create a program that would drive the PiCar to a blue object that is positioned at least 10 feet away with the PiCar turned up to 30◦ degrees away from the blue object in either direction. The blue object we used for objective 2 and for objective 3 is shown in figure 10. There were three targets that we were challenged to meet for this objective: A speed target, a distance target, and a direction target. The speed target was to reach the blue object in less than 10 seconds. The distance target was to start the PiCar at least 10 feet away from the blue object and stopping the PiCar within 15 cm of the blue object. The direction target is to direct the PiCar to the blue object with various starting angles. Using a mixture of the logic and functions from module9b.py and module9d.py, we created objective2.py, a program that tracks the blue object to output the steer servo position and simultaneously measure the distance from the blue object to determine the appropriate pwm for the DC motors.
+
+The image capture delay and delta value were adjusted to create an accurately responsive PiCar that makes proportional changes in steer servo direction towards the blue object. To reduce the occurrence of over-steering/over- correction, we set the steer direction straight ahead for angle measurements below 7.5 degrees in either direction. The program initialization step centers the swivel servo, sets the nod servo slightly above center, and sets the pwm of the motor to 90% for 0.5 seconds to make sure that the PiCar overcomes inertia. Past the initialization steps, the motor pwm decreases to 62% until the PiCar gets within 200 cm. For a distance range of 199- 100, 99-50, 49-10, and 9-0 cm the pwm is set to 50%, 45%, 40%, and 0% respectfully to allow for a smooth decrease in pwm as the PiCar gets closer to the blue object.
 
 
 <div align="center">
     <h2 id="Header">Objective 3: Movement with Control</h2>
 </div>
+
+The goal of Objective 3 was to combine the processes of Objective 1 and Objective 2 and make the car start from a specific point and travel in a straight line to a large colored object at a specific speed determined by the instructor. The purpose was that the car should not run into the object and should ”stop” as close to the object as possible without hitting it. Our PiCar got within 3/8”. Regarding the PID coefficients, we again followed the procedure in Fig. 7. We chose the Kp = 1.5, Ki = 4.0, and Kd = 0.0. We choose the Kd = 0 again because we were working with a system that had computational constraints, and proportional and integral control provided the desired system response. Therefore, we decided that adding derivative control might not offer substantial benefits. A Kp value of 1.5 was needed because of the load that is experienced by the PiCar increases the inertia that must be overcome. Kp remained constant from objective 1 as it provided a smoother acceleration to our desired 5 RPS value compared to other values for Kp. Higher Kp caused the PiCar to accelerate too fast and lower Kp caused the PiCar to not accelerate at all. Here is the usage we had for Objective 3 that contains all the command line arguments and their values we had:
+
+<p align="center" width="100%">
+    <img width="50%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/546e58ce-4fb0-4180-8fd1-6035fdde1a6b"> 
+</p>
+
+The velocity-time plot with Movement and Control is not as smooth as the velocity-time plot with only Control; this is due to the increased system dynamics, non-linearities, and the friction. Regarding the system performance results, we calculated the RPS of 4.812 for our plot and found the Peak RPS to be 6.450. Since calculated the RPS, then the Steady State Error is 5 - 4.812 = 0.188. The 90% of out calculated RPS is 4.331, therefore we founded Response Time to be t = 3.935 sec at RPS of 5.004. Finally, the OverShoot was ((6.450 – 5.000)/5.000)*100 = 29.0%
