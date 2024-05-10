@@ -124,7 +124,7 @@ while cur_time - start_time < args.tim:
         if angle != 360:
          dutyCycle1 = dutyCycle1 + args.delta * angle * PWM_angle_ratio
 
-#         dutyCycle1 = 2 * (dutyCycle1 - 7.5)
+         # dutyCycle1 = 2 * (dutyCycle1 - 7.5)
 
          if dutyCycle1 < -10:
             dutyCycle1 = lowerBound_dutycycle
