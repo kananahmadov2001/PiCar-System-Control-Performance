@@ -12,7 +12,7 @@ PiCar is a robotic platform that uses Raspberry Pi, a small single-board compute
 </p>
 
 <p align="center" width="100%">
-    <img width="45%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/28984a60-a50c-4976-ba48-2b17961fa3f6"> 
+    <img width="47.5%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/28984a60-a50c-4976-ba48-2b17961fa3f6"> 
     <img width="40%" src="https://github.com/kananahmadov2001/PiCar-System-Control-Performance/assets/135070652/fec7c5b2-c88e-4d00-b544-056300e7df36"> 
 </p>
 
