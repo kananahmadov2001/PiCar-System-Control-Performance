@@ -1,4 +1,3 @@
-
 import RPi.GPIO as GPIO
 import Adafruit_MCP3008
 from Adafruit_GPIO.GPIO import RPiGPIOAdapter as Adafruit_GPIO_Adapter
