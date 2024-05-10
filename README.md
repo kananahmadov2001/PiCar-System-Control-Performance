@@ -9,13 +9,14 @@ PiCar is a robotic platform that uses Raspberry Pi, a small single-board compute
     <p style="margin-top:10px;"></p>
 </div>
 
-    1. Introduction: Sensors used on the PiCar and Power
+    1. Introduction
     2. Objective 1: Control
     3. Objective 2: Movement
     4. Objective 3: Movement with Control
+    5. Conclusion
 
 <div align="center">
-    <h2 id="Header">Introduction: Sensors used on the PiCar and Power</h2>
+    <h2 id="Header">Introduction</h2>
 </div>
 
 The PiCar has the Ultrasonic sensor for the eyes and the Camera as its mouth. The Ultrasonic Sensor also has a built in voltage divider to convert the 5 V for the Echo down to 3.3 V input to the Raspberry Pi. The DC motor is installed on the back of the PiCar; the motor has a rear-wheel drive connected to some gears underneath that drive the wheels. The Analog-to-Digital Converter (ADC) is also connected to the back end of the car next to the motor. The ADC was also connected to a photoresistor at channel 0 and an LED light that pointed at the inside of the left back wheel where the black and white disk is installed. Regarding the Servo(s), our PiCar has three servomotors on it:
@@ -76,4 +77,10 @@ For our third objective, we combined the methods from the first two objectives. 
 
 The velocity-time plot with Movement and Control is not as smooth as the velocity-time plot with only Control; this is due to the increased system dynamics, non-linearities, and the friction. Regarding the system performance results, we calculated the RPS of 4.812 for our plot and found the Peak RPS to be 6.450. Since calculated the RPS, then the Steady State Error is 5 - 4.812 = 0.188. The 90% of out calculated RPS is 4.331, therefore we founded Response Time to be t = 3.935 sec at RPS of 5.004. Finally, the OverShoot was ((6.450 – 5.000)/5.000)*100 = 29.0%
 
+<div align="center">
+    <h2 id="Header">Conclusion</h2>
+</div>
+
 Ultimately, through these objectives, we concluded that Kp balances the stability. The system may be slow and exhibit steady-state error if it's too low. If it's too high, it can cause instability. Ki ensures the system remains stable while achieving the desired accuracy. It should be set to correct steady-state errors without causing oscillation or overshooting. Finally, Kd should dampen oscillations and stabilize the system without introducing excess noise. Future investigations into PID control would serve to further display the complex relationships between the three coefficients: Kp, Ki, and Kd.
+
+If you would like to know more about the "PiCar-System-Control-Performance" project, checkout our report: https://github.com/kananahmadov2001/PiCar-System-Control-Performance/blob/main/Final_Report_ESE205.pdf
